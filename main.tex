@@ -1,0 +1,187 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{ % No page header - if you want one, create it in the same way as the footers below
+  \fancyfoot[L]{ % Empty left footer
+    \fancyfoot[C]{ % Empty center footer
+      \fancyfoot[R]{\thepage} % Page numbering for right footer
+      \renewcommand{\headrulewidth}{0pt} % Remove header underlines
+      \renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+      \setlength{\headheight}{13.6pt} % Customize the height of the header
+    
+      \numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+      \numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+      \numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+    
+      \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+    
+    % custom things
+      \usepackage{hyperref}
+      \usepackage{float}
+    % json formatting http://tex.stackexchange.com/questions/83085/how-to-improve-listings-display-of-json-files
+      \usepackage{bera}% optional: just to have a nice mono-spaced font
+      \usepackage{listings}
+      \usepackage{xcolor}
+      \colorlet{punct}{red!60!black}
+      \definecolor{background}{HTML}{EEEEEE}
+      \definecolor{delim}{RGB}{20,105,176}
+      \colorlet{numb}{magenta!60!black}
+      \lstdefinelanguage{json}{
+          basicstyle=\normalfont\ttfamily,
+	    numbers=left,
+	      numberstyle=\scriptsize,
+	        stepnumber=1,
+	          numbersep=8pt,
+		    showstringspaces=false,
+		      breaklines=true,
+		        stringstyle =\color{gray},
+		          morestring=[b]``,
+				morestring=[d]’,
+			          frame=lines,
+				    tabsize=2,
+				      backgroundcolor=\color{white},
+				        literate=*
+					{0}\left\{ {\color{numb}0}}}{1}
+					{1}\left\{ {\color{numb}1}}}{1}
+					{2}\left\{ {\color{numb}2}}}{1}
+					{3}\left\{ {\color{numb}3}}}{1}
+					{4}\left\{ {\color{numb}4}}}{1}
+					{5}\left\{ {\color{numb}5}}}{1}
+					{6}\left\{ {\color{numb}6}}}{1}
+					{7}\left\{ {\color{numb}7}}}{1}
+					{8}\left\{ {\color{numb}8}}}{1}
+					{9}\left\{ {\color{numb}9}}}{1}
+					{:}\left\{ {\color{punct}{:}}}}{1}
+					{,}\left\{ {\color{punct}{,}}}}{1}
+					{\\left\{ \left\{ \color{delim}{\\left\{ 1}
+					{\}}\left\{ {\color{delim}{\}}}}}{1}
+					{[}\left\{ {\color{delim}{[}}}}{1}
+					{]}\left\{ {\color{delim}{]}}}}{1},
+				      }
+				    
+				    %----------------------------------------------------------------------------------------
+				    %	TITLE SECTION
+				    %----------------------------------------------------------------------------------------
+				    
+				      \newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+				    
+				    \title{	
+				    \normalfont \normalsize 
+				    \textsc{Ghent University - T\begin{list}{N} \\ [25pt] % Your university, school and/or department name(s)
+				      \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+				    \huge MongoDB workshop \\ % The assignment title
+				    \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+				  }
+				
+				  \author{Joachim Nielandt} % Your name
+				
+				  \date{\normalsize\today} % Today's date or a custom date
+				
+				  \begin{document}
+				
+				\maketitle % Print the title
+			      
+				\section{Introduction aangepast elelel weebweebwweeabooooooobs}
+				In this workshop we will take a look at MongoDB, a free and open source NoSQL database. Installer files and documentation can be found at \url{www.mongodb.com}. The database is easily installed and can for example be used to support websites.
+			      
+				\section{Stored data}
+				MongoDB stores all its data in the form of \emph{documents}. Each document is represented in JSON format (JavaScript Object Notation, \url{http://www.json.org/}). This format consists of two structures:
+			      
+				\begin{itemize}
+				\item object, a collection of key-value pairs
+			      \item array, an ordered list of values
+			    \end{itemize}
+			  
+			    Values can take many forms, such as a \emph{string}, a \emph{number} or a \emph{boolean}. Objects can also be nested into each other. A small example of a JSON object is given in Listing~\ref{listjsonexample}. One person is defined there, with a couple of properties. Notice that strings are encapsulated by quotes, numbers are not. Everything is wrapped in $\{$ and $\}$ to indicate a hierarchy. $[$ and $]$ are used to start and end arrays, simple lists of values. 
+			  
+			    \begin{lstlisting}[float,floatplacement=H,language=json,firstnumber=1,caption=test,label=listjsonexample]
+			    {
+			    	person: {
+						id: ''234dd08esv682``,
+					      		birthplace: ''Ghent``,
+						      		name: {
+											firstname: ''Jeffrey``,
+										      			lastname: ''Lebowski``
+												      		},
+													      		birthdate: {
+																		day:12,
+																	      			month:2,
+																			      			year:1961
+																					      		},
+																						      		hobbies: [''Drinking white russians``, ''Cleaning rugs``]
+																							      	}
+																							      }
+																							      \end{lstlisting}
+																							    
+																							    
+																							    
+																							      \section{CRUD Operations}
+																							    CRUD (Create, Read, Update, Delete) operations are the basic ones that are usually supported by any database system. MongoDB offers these operations as well and does most of them using JSON as input and output. This makes the database easy in use, as most programming languages know how to handle JSON. Most particular: Javascript. Fetching data from a MongoDB database is easy for website developers, as they can get it raw in JSON format and process it straight away in their Javascript code without having to write wrapping code or special handlers. 
+																							  
+																							    Any operation that is performed can be done within the context of a \emph{database}, by specifying it with the following command:
+																							  
+																							    \begin{lstlisting}[language=json,firstnumber=1]
+																							  use myNewDatabase;
+																							  \end{lstlisting}
+																							
+																							  If database \emph{myNewDatabase} did not exist yet, it will be created whenever something is inserted into it.
+																							
+																							  \subsection{Create}
+																							Inserting data in a MongoDB database is straight forward. No schema needs to be adhered to. It is only necessary to execute an insert command and pass a valid JSON structure. The following command inserts a very basic JSON structure into the collection myNewCollection, using the currently active database.
+																						      
+																							\begin{lstlisting}[language=json,firstnumber=1]
+																							db.myNewCollection.insert( { x: 1 } )
+																							\end{lstlisting}
+																						      
+																							\subsubsection{Task: insert some data}
+																							Insert three persons in the database \emph{person}, using the properties of friends you know. Don't worry about data that you might not know, just don't include it. That's one of the benefits of a NoSQL database: not having to worry about a schema.
+																						      
+																							\subsubsection{Task: check what just happened}
+																						      You just inserted some data, if everything went well you should be able to retrieve it as well. The most basic query to achieve this is the following:
+																						      \begin{lstlisting}[language=json,firstnumber=1]
+																						    db.myNewCollection.find(
+																						    \end{lstlisting}
+																						  List all the persons you added!
+																						
+																						
+																						  \subsection{Read}
+																						
+																						  \subsection{Update}
+																						
+																						  \subsection{Delete}
+																						
+																						
+																						  \end{document})<++>}{<+spacing+>}
+				  \item <++>
+				  \end{list}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>}<++>}<++>}<++>}<++> \right\}<++> \right\}<++>}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>\right\}<++>}<++>}<++>}<++>
